@@ -1,0 +1,1 @@
+Keywords: containers, images, volumes, reverse proxy, multi-stage builds, Linux, Ubuntu, BusyBox, Docker, Dockerfile, Docker Compose, Nginx, MongoDB, Express, Redis, React, Javascript, GitHub
