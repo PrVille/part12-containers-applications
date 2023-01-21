@@ -1,0 +1,58 @@
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+        "name": "Ville",
+        "dateOfBirth": "2022-12-14",
+        "ssn": "141222-303X",
+        "gender": "male",
+        "occupation": "Student"
+}
+
+###
+POST http://localhost:3001/api/patients/d2773822-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+        "id": "b4f4eca1-2aa7-4b13-9a18-4a5535c3c8da",
+        "date": "2019-10-20",
+        "specialist": "MD House",
+        "type": "HealthCheck",
+        "description": "Yearly control visit. Cholesterol levels back to normal.",
+        "healthCheckRating": "0"
+}
+
+###
+POST http://localhost:3001/api/patients/d2773822-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+        "id": "b4f4eca1-2aa7-4b13-9a18-4a5535c3c8da",
+        "date": "2019-10-20",
+        "specialist": "MD House",
+        "type": "OccupationalHealthcare",
+        "description": "Yearly control visit. Cholesterol levels back to normal.",
+        "employerName": "HyPD",
+        "diagnosisCodes": ["Z57.1", "Z74.3", "M51.2"],
+        "sickLeave": {
+          "startDate": "2019-08-05",
+          "endDate": "2019-08-28"
+        }
+}
+
+###
+POST http://localhost:3001/api/patients/d2773822-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+        "id": "b4f4eca1-2aa7-4b13-9a18-4a5535c3c8da",
+        "date": "2019-10-20",
+        "specialist": "MD House",
+        "type": "Hospital",
+        "description": "Yearly control visit. Cholesterol levels back to normal.",
+        "diagnosisCodes": ["Z57.1", "Z74.3", "M51.2"],
+        "discharge": {
+          "date": "2019-08-05",
+          "criteria": "Thumb has healed."
+        }
+}

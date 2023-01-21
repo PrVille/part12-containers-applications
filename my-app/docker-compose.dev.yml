@@ -1,0 +1,36 @@
+services:
+ 
+  backend:
+    image: backend-dev
+    build:
+      context: ./patientor-backend 
+      dockerfile: dev.Dockerfile 
+    volumes:
+      - ./patientor-backend:/usr/src/app 
+    ports:
+      - 3001:3001
+    container_name: backend-dev
+  
+  frontend:
+    image: frontend-dev
+    build:
+      context: ./patientor-frontend
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./patientor-frontend:/usr/src/app
+    ports:
+      - 3000:3000
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:3001
+    container_name: frontend-dev
+  
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: my-app-reverse-proxy
+    depends_on:
+      - frontend-dev
+      - backend-dev
